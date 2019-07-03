@@ -62,6 +62,10 @@ public class FlightInfoRepository {
 	}
 	
 	public List<FlightInformationDAO> findFlights(Date date, String origin, String destination, String flightNumber){
+		if (flightInfo == null || flightInfo.size() == 0) {
+			return new ArrayList<FlightInformationDAO>();
+		}
+		
 		Stream<FlightInformationDAO> retFlight = flightInfo.stream();
 		
 		if (date != null) {
